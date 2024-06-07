@@ -2,10 +2,6 @@ import { Product } from 'src/Products/products.model';
 import { AdditionFavoritesDto } from './dto/addition-favorites.dto';
 import { Favorite } from './favorite.model';
 import { FavoriteRepository } from './favorite.repository';
-/*
-https://docs.nestjs.com/providers#services
-*/
-
 import { Injectable } from '@nestjs/common';
 
 @Injectable()

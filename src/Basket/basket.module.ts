@@ -2,15 +2,12 @@ import { BasketController } from './basket.controller';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { BasketRepositor } from './basket.repository';
 import { BasketService } from './basket.service';
-/*
-https://docs.nestjs.com/modules
-*/
-
 import { Module } from '@nestjs/common';
 import { Basket } from './basket.model';
+import { AuthModule } from 'src/Auth/auth.module';
 
 @Module({
-    imports: [SequelizeModule.forFeature([Basket])],
+    imports: [SequelizeModule.forFeature([Basket]), AuthModule],
     controllers: [
         BasketController, ],
     providers: [

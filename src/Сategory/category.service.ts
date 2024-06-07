@@ -8,21 +8,16 @@ import { Product } from 'src/Products/products.model';
 @Injectable()
 export class CategoryService {
   constructor(private readonly categoryRepository: CategoryRepository) { }
-
   async createCategory(createCategoryDto: CreateCategoryDto): Promise<Category> {
-    // Вызываем метод create() репозитория, передавая DTO с данными для создания категории
     const newCategory = await this.categoryRepository.create(createCategoryDto);
-    // Возвращаем созданный объект категории
     return newCategory;
   }
-
   async getAllCategory(): Promise<Category[]> {
-    const allCategory = await this.categoryRepository.getCategory()
+    const allCategory = await this.categoryRepository.getAllCategory()
     return allCategory
   }
-
-  async getProductByCategory(getProductByCategory: GetProductByCategory):Promise<Product[]> {
-    const testtt = await this.categoryRepository.getProductByCategory(getProductByCategory)
-    return testtt
+  async getProductByCategory(categoryId: number):Promise<Product[]> {
+    const Products = await this.categoryRepository.getProductByCategory(categoryId)
+    return Products
   }
 }
